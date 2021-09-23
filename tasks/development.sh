@@ -162,6 +162,13 @@ cat <<EOT >> ~/.zshrc
 export PATH="/usr/local/bin/kubectl:\$PATH"
 EOT
 
+echo -e "\e[94m\n-----------------------------Instalando Kubeval\e[39m"
+wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+tar xf kubeval-linux-amd64.tar.gz
+sudo mv kubeval /usr/local/bin
+rm -f kubeval-linux-amd64.tar.gz
+kubeval --version
+
 # Poetry para gerenciamento de dependências de Python e virtualenvs
 echo -e "\e[94m\n-----------------------------Instalando Poetry\e[39m"
 
