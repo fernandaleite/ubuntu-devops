@@ -156,3 +156,12 @@ echo -e "\e[94m\n-----------------------------Instalando Network Manager OpenVPN
 
 sudo apt update
 sudo apt install network-manager-openvpn
+
+read -rep $'\e[93mDeseja instalar o DBeaver? [S/n]: \e[39m' -n 1 GET_DBEAVER
+GET_DBEAVER=${GET_DBEAVER:-n}
+if [[ $GET_DBEAVER =~ ^[sS]$ ]]; then
+    echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+    wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
+    sudo apt update
+    sudo apt install dbeaver-ce
+fi
