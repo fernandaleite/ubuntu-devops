@@ -107,8 +107,11 @@ sudo snap install slack --classic
 
 addToFavorites 'slack_slack.desktop'
 
-# Colocar pergunta se quer instalar essa extensão? Precisa instalar o App do Clockwise no Slack tbm.
-#google-chrome "https://chrome.google.com/webstore/detail/clockwise-time-management/hjcneejoopafkkibfbcaeoldpjjiamog"  --profile-directory="Default"
+read -rep $'\e[93mDeseja instalar a extensão do Clockwise para o Chrome? [S/n]: \e[39m' -n 1 GET_CLOCK_CRHOME
+GET_CLOCK_CRHOME=${GET_CLOCK_CRHOME:-n}
+if [[ $GET_CLOCK_CRHOME =~ ^[sS]$ ]]; then
+    google-chrome "https://chrome.google.com/webstore/detail/clockwise-time-management/hjcneejoopafkkibfbcaeoldpjjiamog"  --profile-directory="Default"
+fi
 
 echo -e "\e[94m\n-----------------------------Instalando VLC\e[39m"
 sudo apt install -y vlc
