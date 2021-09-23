@@ -28,5 +28,7 @@ alias restart-terminal='exec "\$SHELL"'
 alias net-on='sudo nmcli networking on'
 alias net-off='sudo nmcli networking off'
 alias net-restart='net-off && net-on'
+alias docker-login-stg='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin https://\${AWS_ACCOUNT_ID_PRD}.dkr.ecr.us-east-1.amazonaws.com'
+alias docker-login-prd='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin https://\${AWS_ACCOUNT_ID_STG}.dkr.ecr.us-east-1.amazonaws.com'
 EOT
 
