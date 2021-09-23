@@ -71,6 +71,10 @@ fi
 
 java -version
 
+## Configurando o JAVA_HOME
+
+. ~/.asdf/plugins/java/set-java-home.zsh
+
 echo -e "\e[94m\n-----------------------------Instalando Node JS\e[39m"
 
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
