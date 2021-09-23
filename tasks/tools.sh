@@ -72,19 +72,27 @@ addToFavorites 'code.desktop'
 echo -e "\e[94m\n-----------------------------Instalando Extensões do Visual Studio Code\e[39m"
 code --install-extension shan.code-settings-sync
 
-#  QUEM NÃO TIVER NENHUM PODE VER ESSES DE SUGESTÃO
-# code --install-extension hashicorp.terraform
-# code --install-extension ms-azuretools.vscode-docker
+#  DICAS DE EXTENSÕES
 # code --install-extension ahmadalli.vscode-nginx-conf
+# code --install-extension dracula-theme.theme-dracula
 # code --install-extension esbenp.prettier-vscode
-# code --install-extension mikestead.dotenv
-# code --install-extension sidthesloth.html5-boilerplate
-# code --install-extension hdg.live-html-previewer
-# code --install-extension vscode-icons-team.vscode-icons
 # code --install-extension golang.go
+# code --install-extension hashicorp.terraform
+# code --install-extension hdg.live-html-previewer
+# code --install-extension johnpapa.vscode-peacock
+# code --install-extension mikestead.dotenv
+# code --install-extension ms-azuretools.vscode-docker
 # code --install-extension ms-python.python
+# code --install-extension ms-python.vscode-pylance
+# code --install-extension ms-toolsai.jupyter
+# code --install-extension ms-toolsai.jupyter-keymap
+# code --install-extension ms-vscode-remote.remote-containers
+# code --install-extension redhat.vscode-yaml
+# code --install-extension shakram02.bash-beautify
+# code --install-extension Shan.code-settings-sync
+# code --install-extension sidthesloth.html5-boilerplate
+# code --install-extension vscode-icons-team.vscode-icons
 # code --install-extension wingrunr21.vscode-ruby
-# TEM MAIS, PEGAR DEPOIS
 
 echo -e "\e[94m\n-----------------------------Instalando JetBrains Toolbox\e[39m"
 
