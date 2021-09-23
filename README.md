@@ -51,7 +51,10 @@ Nos script contem a instalação das seguintes ferramentas:
 * Yarn JS
 * Terraform
 * Python
+* Poetry
 * Serverless
+* Kubectl
+* Kubeval
 
 ### tool-env-install
 
@@ -69,6 +72,8 @@ Nos script contem a instalação das seguintes ferramentas:
 * Slack
 * VLC
 * OpenVPN Client
+* DBeaver
+* Charles
 
 ### gnome-install
 
