@@ -161,3 +161,28 @@ cat <<EOT >> ~/.zshrc
 # Added by kubectl binary installer
 export PATH="/usr/local/bin/kubectl:\$PATH"
 EOT
+
+# Poetry para gerenciamento de dependências de Python e virtualenvs
+echo -e "\e[94m\n-----------------------------Instalando Poetry\e[39m"
+
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+
+cat <<EOT >> ~/.zshrc
+
+# Added poetry by binary installer
+export PATH="\$HOME/.local/bin:\$PATH"
+
+alias poetry-envs-list='ls ~/.cache/pypoetry/virtualenvs/'
+EOT
+
+poetry --version
+
+echo -e "\n\nAdicionar no settings do seu VSCODE :: `"python.venvFolders": ["~/.cache/pypoetry/virtualenvs/"]`\n\n"
+
+# Oh-My-Zsh
+mkdir $ZSH_CUSTOM/plugins/poetry
+poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+
+# For oh-my-zsh, you must then enable poetry in your ~/.zshrc plugins
+sed -i 's,zsh-completions),zsh-completions poetry),g' ~/.zshrc
+
