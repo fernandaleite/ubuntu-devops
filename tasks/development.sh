@@ -41,6 +41,7 @@ mkdir -p ~/gocode/src
 
 cat <<EOT >> ~/.zshrc
 
+## GOLANG
 GOV=\$(asdf where golang)
 export GOROOT=\$GOV/go
 export GOPATH=\$HOME/gocode
@@ -94,6 +95,7 @@ asdf global maven $(ls /$HOME/.asdf/installs/maven)
 
 cat <<EOT >> ~/.zshrc
 
+## MAVEN
 export M2_HOME=\$(asdf where maven)
 export PATH="\$M2_HOME/bin:\$PATH"
 EOT
@@ -142,7 +144,7 @@ curl -o- -L https://slss.io/install | bash
 
 cat <<EOT >> ~/.zshrc
 
-# Added by serverless binary installer
+## SERVERLESS
 export PATH="\$HOME/.serverless/bin:\$PATH"
 EOT
 
@@ -158,8 +160,9 @@ kubectl --version
 
 cat <<EOT >> ~/.zshrc
 
-# Added by kubectl binary installer
+## KUBECTL
 export PATH="/usr/local/bin/kubectl:\$PATH"
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 EOT
 
 echo -e "\e[94m\n-----------------------------Instalando Kubeval\e[39m"
@@ -176,14 +179,16 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-
 
 cat <<EOT >> ~/.zshrc
 
-# Added poetry by binary installer
-export PATH="\$HOME/.local/bin:\$PATH"
-
+## POETRY
+export POETRY_HOME="\$HOME/poetry/bin"
+export PATH="\$POETRY_HOME:\$PATH"
 alias poetry-envs-list='ls ~/.cache/pypoetry/virtualenvs/'
+alias poetry-envs-edit='cd ~/.cache/pypoetry/virtualenvs/'
 EOT
 
 poetry --version
 
+## fica em $HOME/. config/Code/User/settings. json
 echo -e "\n\nAdicionar no settings do seu VSCODE :: `"python.venvFolders": ["~/.cache/pypoetry/virtualenvs/"]`\n\n"
 
 # Oh-My-Zsh
@@ -192,4 +197,3 @@ poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 
 # For oh-my-zsh, you must then enable poetry in your ~/.zshrc plugins
 sed -i 's,zsh-completions),zsh-completions poetry),g' ~/.zshrc
-

@@ -35,6 +35,14 @@ sudo apt install docker
 sudo groupadd docker
 sudo usermod -aG docker ${USER}
 
+cat <<EOT >> ~/.zshrc
+
+## DOCKER
+alias docker-login-stg='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin https://\${AWS_ACCOUNT_ID_PRD}.dkr.ecr.us-east-1.amazonaws.com'
+alias docker-login-prd='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin https://\${AWS_ACCOUNT_ID_STG}.dkr.ecr.us-east-1.amazonaws.com'
+alias docker-rm-all='docker rm $(docker ps -a -q)'
+EOT
+
 echo -e "\e[94m\n-----------------------------Instalando Docker-compose\e[39m"
 sudo apt install -y docker-compose
 
@@ -107,8 +115,20 @@ echo -e "\e[94m\n-----------------------------Instalando Nginx\e[39m"
 sudo apt install -y nginx
 
 echo -e "\e[94m\n-----------------------------Configurando Nginx\e[39m"
-sudo cp files/Makefile.nginx /etc/nginx/Makefile
 sudo cp -fr files/nginx.conf /etc/nginx/
+
+cat <<EOT >> ~/.zshrc
+
+## NGINX
+alias nginxedit='sudo vim /etc/nginx/nginx.conf'
+alias cdnginx='cd /etc/nginx/'
+alias nginx-status='sudo systemctl status nginx'
+alias nginx-start='sudo systemctl start nginx'
+alias nginx-restart='sudo systemctl restart nginx'
+alias nginx-stop='sudo systemctl stop nginx'
+alias nginx-reload='sudo systemctl reload nginx'
+alias nginx-enable='sudo systemctl enable nginx'
+EOT
 
 echo -e "\e[94m\n-----------------------------Instalando Slack\e[39m"
 sudo snap install slack --classic
@@ -165,6 +185,14 @@ echo -e "\e[94m\n-----------------------------Instalando Network Manager OpenVPN
 sudo apt update
 sudo apt install network-manager-openvpn
 
+cat <<EOT >> ~/.zshrc
+
+## NETWORKING
+alias net-on='sudo nmcli networking on'
+alias net-off='sudo nmcli networking off'
+alias net-restart='net-off && net-on'
+EOT
+
 read -rep $'\e[93mDeseja instalar o DBeaver? [S/n]: \e[39m' -n 1 GET_DBEAVER
 GET_DBEAVER=${GET_DBEAVER:-n}
 if [[ $GET_DBEAVER =~ ^[sS]$ ]]; then
@@ -172,4 +200,34 @@ if [[ $GET_DBEAVER =~ ^[sS]$ ]]; then
     wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
     sudo apt update
     sudo apt install dbeaver-ce
+fi
+
+read -rep $'\e[93m\nQuer instalar o Postgresql Service? [S/n]: \e[39m' -n 1 PSQL_SURE
+PSQL_SURE=${PSQL_SURE:-S}
+if [[ $PSQL_SURE =~ ^[sS]$ ]]; then
+
+cat <<EOT >> ~/.zshrc
+
+## POSTGRES
+alias postgresql-info='apt show postgresql'
+alias postgresql-connect='sudo su - postgres'
+alias postgresql-status='sudo systemctl status postgresql'
+alias postgresql-stop='sudo systemctl stop postgresql'
+alias postgresql-start='sudo systemctl start postgresql'
+alias postgresql-disabled='sudo systemctl disable postgresql'
+alias postgresql-enable='sudo systemctl enable postgresql'
+EOT
+
+    echo -e "\e[94m\n-----------------------------Instalando Postgresql Service\e[39m"
+    sudo apt install wget ca-certificates
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ 'lsb_release -cs'-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+    sudo apt update
+    sudo apt install postgresql 
+
+    read -rep $'\e[93m\nQuer instalar o pacote "PostgreSQL contrib" (que fornece recursos adicionais)? [S/n]: \e[39m' -n 1 PSQL_CONTR_SURE
+    PSQL_CONTR_SURE=${PSQL_CONTR_SURE:-S}
+    if [[ $PSQL_CONTR_SURE =~ ^[sS]$ ]]; then
+        sudo apt install postgresql-contrib
+    fi
 fi
