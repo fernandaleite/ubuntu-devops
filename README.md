@@ -4,7 +4,9 @@ Este projeto foi criado com o intuito de facilitar a configuração de um ambien
 
 A motivação para publicação do mesmo veio do outro criado para macos()
 
-Entre atualizações, instalações e configurações, o script demora cerca de minutos para ser finalizado. 
+Entre atualizações, instalações e configurações, o script demora cerca de x minutos para ser finalizado. 
+
+Como possui algumas interações sobre decisões, é melhor ficar observando enquanto o mesmo é executado.
 
 ## Como executar
 
@@ -18,7 +20,7 @@ Para rodar execute no terminal:
 
 Nos script contem a instalação das seguintes ferramentas:
 
-### basic-env-install
+### basic
 
 * XCLIP
 * CURL
@@ -30,7 +32,7 @@ Nos script contem a instalação das seguintes ferramentas:
 * GIT
 * AWS CLI
 
-### oh-my-zsh-install
+### oh-my-zsh
 
 * Instalação do Oh My Zsh
 * Plugin Syntax Highlighting
@@ -41,7 +43,7 @@ Nos script contem a instalação das seguintes ferramentas:
 * Fonte FiraCode
 * Cores Dracula
 
-### dev-env-install
+### development
 
 * ASDF
 * Go Lang
@@ -55,8 +57,9 @@ Nos script contem a instalação das seguintes ferramentas:
 * Serverless
 * Kubectl
 * Kubeval
+* PHP
 
-### tool-env-install
+### tools
 
 * Terminator
 * Postman
@@ -75,7 +78,7 @@ Nos script contem a instalação das seguintes ferramentas:
 * DBeaver
 * Charles
 
-### gnome-install
+### gnome
 
 * Extensão do Chrome
 * Extensões do Gnome

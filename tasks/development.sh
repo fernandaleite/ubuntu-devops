@@ -135,6 +135,15 @@ fi
 
 python --version
 
+echo -e "\e[94m\n-----------------------------Instalando PHP\e[39m"
+
+sudo apt install -y autoconf bison re2c libxml2-dev libcurl libgd-dev libonig-dev libzip-dev
+asdf plugin-add php https://github.com/asdf-community/asdf-php.git
+asdf install php latest
+asdf global php $(ls /$HOME/.asdf/installs/php)
+
+php --version
+
 echo -e "\e[94m\n-----------------------------Finalizado Configurações do ASDF\e[39m"
 echo -e "-----------------------------Plugins adicionados:"
 asdf current
