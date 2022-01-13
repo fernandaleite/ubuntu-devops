@@ -52,29 +52,33 @@ EOT
 echo -e "\e[94m\n-----------------------------Instalando Java\e[39m"
 
 asdf plugin-add java
+asdf install java latest
+asdf global java $(ls /$HOME/.asdf/installs/java)
 
-asdf list-all java
+# comentado instruções para instalação de várias versões no setup inicial
 
-while read -rep $'\e[93m\nQual versao de Java deseja instalar. [openjdk-16.0.1/vazio]: \e[39m' JDK_VERSION && [[ ! -z $JDK_VERSION ]]; do
-    asdf install java $JDK_VERSION
-done
+# asdf list-all java
 
-JDK_VERSIONS=($(ls /$HOME/.asdf/installs/java))
+# while read -rep $'\e[93m\nQual versao de Java deseja instalar. [openjdk-16.0.1/vazio]: \e[39m' JDK_VERSION && [[ ! -z $JDK_VERSION ]]; do
+#     asdf install java $JDK_VERSION
+# done
 
-if [ ${#JDK_VERSIONS[@]} == 1 ]; then
-    asdf global java $(ls /$HOME/.asdf/installs/java)
-else
-    asdf list java
-    read -rep $'\e[93mQual versao de Java deseja que seja a GLOBAL. e.g.(openjdk-16.0.1): \e[39m' JDK_GLOBAL
-    JDK_GLOBAL=${JDK_GLOBAL:-openjdk-16.0.1}
-    asdf global java ${JDK_GLOBAL}
-fi
+# JDK_VERSIONS=($(ls /$HOME/.asdf/installs/java))
 
-java -version
+# if [ ${#JDK_VERSIONS[@]} == 1 ]; then
+#     asdf global java $(ls /$HOME/.asdf/installs/java)
+# else
+#     asdf list java
+#     read -rep $'\e[93mQual versao de Java deseja que seja a GLOBAL. e.g.(openjdk-16.0.1): \e[39m' JDK_GLOBAL
+#     JDK_GLOBAL=${JDK_GLOBAL:-openjdk-16.0.1}
+#     asdf global java ${JDK_GLOBAL}
+# fi
 
 ## Configurando o JAVA_HOME
 
 . ~/.asdf/plugins/java/set-java-home.zsh
+
+java -version
 
 echo -e "\e[94m\n-----------------------------Instalando Node JS\e[39m"
 
@@ -116,22 +120,27 @@ echo -e "\e[94m\n-----------------------------Instalando Python\e[39m"
 
 touch .default-python-packages
 asdf plugin-add python
-asdf list-all python
+asdf install python latest
+asdf global python $(ls /$HOME/.asdf/installs/python)
 
-while read -rep $'\e[93m\nQual versao de Python deseja instalar. [3.9.6/vazio]: \e[39m' PY_VERSION && [[ ! -z $PY_VERSION ]]; do
-    asdf install python $PY_VERSION
-done
+# comentado instruções para instalação de várias versões no setup inicial
 
-PY_VERSIONS=($(ls /$HOME/.asdf/installs/python))
+# asdf list-all python
 
-if [ ${#PY_VERSIONS[@]} == 1 ]; then
-    asdf global python $(ls /$HOME/.asdf/installs/python)
-else 
-    asdf list python
-    read -rep $'\e[93mQual versao de Python deseja que seja a GLOBAL. e.g.(3.9.6): \e[39m' PY_GLOBAL
-    PY_GLOBAL=${PY_GLOBAL:-3.9.6}
-    asdf global python ${PY_GLOBAL}
-fi
+# while read -rep $'\e[93m\nQual versao de Python deseja instalar. [3.9.6/vazio]: \e[39m' PY_VERSION && [[ ! -z $PY_VERSION ]]; do
+#     asdf install python $PY_VERSION
+# done
+
+# PY_VERSIONS=($(ls /$HOME/.asdf/installs/python))
+
+# if [ ${#PY_VERSIONS[@]} == 1 ]; then
+#     asdf global python $(ls /$HOME/.asdf/installs/python)
+# else 
+#     asdf list python
+#     read -rep $'\e[93mQual versao de Python deseja que seja a GLOBAL. e.g.(3.9.6): \e[39m' PY_GLOBAL
+#     PY_GLOBAL=${PY_GLOBAL:-3.9.6}
+#     asdf global python ${PY_GLOBAL}
+# fi
 
 python --version
 
