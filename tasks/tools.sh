@@ -183,7 +183,7 @@ addToFavorites 'charles-proxy.desktop'
 echo -e "\e[94m\n-----------------------------Instalando Network Manager OpenVPN\e[39m"
 
 sudo apt update
-sudo apt install network-manager-openvpn
+sudo apt install -y network-manager-openvpn network-manager-openvpn-gnome
 
 cat <<EOT >> ~/.zshrc
 

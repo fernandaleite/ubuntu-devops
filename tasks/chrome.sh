@@ -13,9 +13,10 @@ if [[ $CHROME_EXT =~ ^[sS]$ ]]; then
 	echo -e "\e[94m\n-----------------------------Instalando Extensões do Google Chrome\e[39m"
     google-chrome "https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa"  --profile-directory="Default"
     google-chrome "https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb"  --profile-directory="Default"
-    google-chrome "https://chrome.google.com/webstore/detail/toggl-track-productivity/oejgccbfbmkkpaidnkphaiaecficdnfn"  --profile-directory="Default"
-    google-chrome "https://chrome.google.com/webstore/detail/google-keep-chrome-extens/lpcaedmchfhocbbapmcbpinfpgnhiddi"  --profile-directory="Default"
+    # google-chrome "https://chrome.google.com/webstore/detail/toggl-track-productivity/oejgccbfbmkkpaidnkphaiaecficdnfn"  --profile-directory="Default"
+    # google-chrome "https://chrome.google.com/webstore/detail/google-keep-chrome-extens/lpcaedmchfhocbbapmcbpinfpgnhiddi"  --profile-directory="Default"
     google-chrome "https://chrome.google.com/webstore/detail/loom-for-chrome/liecbddmkiiihnedobmlmillhodjkdmb"  --profile-directory="Default"
+    google-chrome "https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl=pt-br"  --profile-directory="Default"
 
     read -rep $'\e[93m\nAguardando instalar extensões..\nAperte <ENTER> para continuar...\e[39m'
 fi

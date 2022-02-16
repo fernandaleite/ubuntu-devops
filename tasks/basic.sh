@@ -32,8 +32,8 @@ sudo apt install -y ctop
 
 echo -e "\e[94m\n-----------------------------Configurando SSH\e[39m"
 
-while read -rep $'\e[93m\nConfigurar um VCS? [S/n]: \e[39m' -n 1 GET_VCS && [[ $GET_VCS =~ ^[sS]$ ]]; do
-  read -rep $'\e[93mQual o host do VCS: \e[39m' HOST_NAME
+while read -rep $'\e[93m\nQuer configurar uma nova chave SSH? [S/n]: \e[39m' -n 1 GET_VCS && [[ $GET_VCS =~ ^[sS]$ ]]; do
+  read -rep $'\e[93mQual o host do gerenciador de repositórios: \e[39m' HOST_NAME
   HOST_NAME=$(echo "$HOST_NAME" | tr '[:upper:]' '[:lower:]')
   REPO_NAME=$(echo $HOST_NAME | tr "." " ")
   REPO_NAME=(${HOST_NAME//./ })

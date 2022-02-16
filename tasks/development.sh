@@ -57,7 +57,7 @@ asdf global java $(ls /$HOME/.asdf/installs/java)
 
 # comentado instruções para instalação de várias versões no setup inicial
 
-# asdf list-all java
+# asdf list-all java | grep "^openjdk-"
 
 # while read -rep $'\e[93m\nQual versao de Java deseja instalar. [openjdk-16.0.1/vazio]: \e[39m' JDK_VERSION && [[ ! -z $JDK_VERSION ]]; do
 #     asdf install java $JDK_VERSION
