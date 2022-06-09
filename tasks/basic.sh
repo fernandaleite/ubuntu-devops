@@ -67,6 +67,16 @@ EOT
   fi
 done
 
+if [[ "$REPO_NAME" == *"gitlab"* ]]; then
+  echo -e "\e[94m\n-----------------------------Instalando Gitlab-Search\e[39m"
+  npm install -g gitlab-search
+
+  echo -e "\e[93m\nAguardando criação do token de acesso..\e[39m"
+  echo -e "\e[93m\nBasta ir em Settings or Preference > Access Tokens > Preencher todos os valores.\e[39m"
+  read -rep $'\e[93mColar aqui a chave de acesso: \e[39m' -n 1 GITLAB_SEARCH_ACCESS_KEY
+  gitlab-search setup $GITLAB_SEARCH_ACCESS_KEY --api-domain $HOST_NAME --dir ~/ --concurrency 100
+fi
+
 echo -e "\e[94m\n-----------------------------Instalando GIT\e[39m"
 sudo apt install -y git
 
