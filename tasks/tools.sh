@@ -231,3 +231,19 @@ EOT
         sudo apt install postgresql-contrib
     fi
 fi
+
+echo -e "\e[94m\n-----------------------------Instalando SimpleScreenRecorder\e[39m"
+
+sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt update
+sudo apt install -y simplescreenrecorder
+
+# Para desinstalar:
+# sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder -r -y
+# sudo apt-get remove simplescreenrecorder --auto-remove
+
+echo -e "\e[94m\n-----------------------------Instalando Stick Notes\e[39m"
+
+sudo add-apt-repository ppa:umang/indicator-stickynotes -y
+sudo apt update
+sudo apt install indicator-stickynotes -y
