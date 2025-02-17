@@ -26,7 +26,7 @@ echo -e "\e[94m\n\n-----------------------------Instalando plugin Completions\e[
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 echo -e "\e[94m\n\n-----------------------------Configurando os plugins no ZSHRC\e[39m"
-sed -i 's,plugins=(git),plugins=(git git-flow asdf httpie node npm golang vscode yarn docker docker-compose aws github gitignore zsh-syntax-highlighting zsh-autosuggestions zsh-completions),g' ~/.zshrc
+sed -i 's,plugins=(git),plugins=(sdk python pip poetry pyenv asdf httpie node npm yarn golang vscode docker docker-compose aws git git-flow github gitignore zsh-syntax-highlighting zsh-autosuggestions zsh-completions),g' ~/.zshrc
 
 autoload -U compinit && compinit
 rm -f ~/.zcompdump; compinit
@@ -62,7 +62,6 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   exec_time     # Execution time
-  vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
@@ -73,3 +72,6 @@ SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 EOT
 
+## ZSH ALIASES
+alias zshedit='vim ~/.zshrc'
+alias zshclean='source ~/.zshrc'
