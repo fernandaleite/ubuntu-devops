@@ -33,7 +33,7 @@ rm -f ~/.zcompdump; compinit
 
 echo -e "\e[94m\n\n-----------------------------Instalando buscador Fuzzy Finder\e[39m"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+printf "y\ny\ny\n" | ~/.fzf/install
 
 echo -e "\e[94m\n\n-----------------------------Instalando fonte FiraCode\e[39m"
 sudo apt install fonts-firacode
