@@ -8,13 +8,13 @@ echo -e "\e[94m\n-----------------------------Instalando shell Zsh\e[39m"
 sudo apt install -y zsh
 
 echo -e "\e[94m\n-----------------------------Instalando Oh My Zsh\e[39m"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+printf "yes\n" | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo -e "\e[94m\n\n-----------------------------Instalando padrão de cores Dracula\e[39m"
 sudo apt install dconf-cli
 git clone https://github.com/dracula/gnome-terminal.git ~/gnome-terminal
 
-printf "1\n1\nyes\n2\n" | bash ~/gnome-terminal/install.sh
+printf "1\nyes\n2\n" | bash ~/gnome-terminal/install.sh
 
 echo -e "\e[94m\n\n-----------------------------Instalando plugin Syntax Highlighting\e[39m"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
