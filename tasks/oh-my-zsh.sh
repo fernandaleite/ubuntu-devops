@@ -26,7 +26,7 @@ echo -e "\e[94m\n\n-----------------------------Instalando plugin Completions\e[
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 echo -e "\e[94m\n\n-----------------------------Configurando os plugins no ZSHRC\e[39m"
-sed -i 's,plugins=(git),plugins=(sdk python pip poetry pyenv asdf httpie node npm yarn golang vscode docker docker-compose aws git git-flow github gitignore zsh-syntax-highlighting zsh-autosuggestions zsh-completions),g' ~/.zshrc
+sed -i 's,plugins=(git),plugins=(python pip poetry pyenv asdf httpie node npm yarn golang vscode docker docker-compose aws git git-flow github gitignore zsh-syntax-highlighting zsh-autosuggestions zsh-completions),g' ~/.zshrc
 
 autoload -U compinit && compinit
 rm -f ~/.zcompdump; compinit
@@ -70,10 +70,10 @@ SPACESHIP_USER_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
-EOT
 
 ## ZSH ALIASES
 alias zshedit='vim ~/.zshrc'
 alias zshclean='source ~/.zshrc'
+EOT
 
 source ~/.zshrc
