@@ -75,3 +75,5 @@ EOT
 ## ZSH ALIASES
 alias zshedit='vim ~/.zshrc'
 alias zshclean='source ~/.zshrc'
+
+source ~/.zshrc
